@@ -4,7 +4,7 @@ import qbs.FileInfo
 
 Product {
 	Depends { name: 'doxyqbs' }
-	type: [doxyqbs.GENERATED_DOC_FILETAG]
+	type: [doxyqbs.GENERATED_DOC_FILETAG]	// doxygen_doc
 
 	/// @brief Doxygen executable which will create documentation.
 	property string doxygenExecutable: 'doxygen'
@@ -25,6 +25,6 @@ Product {
 				return FileInfo.joinPaths(project.sourceDirectory, doxygenConfigFile);
 			}
 		}
-		fileTags: doxyqbs.DOXYFILE_FILETAG
+		fileTags: doxyqbs.DOXYFILE_FILETAG	// doxyfile
 	}
 }

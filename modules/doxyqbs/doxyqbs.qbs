@@ -1,6 +1,5 @@
 /// @file doxyqbs.qbs
 import qbs
-import 'doxyqbs-modutils.js'as DoxyUtils
 
 Module {
 	id: doxyqbs
