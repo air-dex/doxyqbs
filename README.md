@@ -22,6 +22,8 @@ Author: Romain Ducher <[ducher.romain@gmail.com](mailto://ducher.romain@gmail.co
 
 **doxyqbs** is a QBS module for generating documentation with [Doxygen](http://www.doxygen.org). You provide a full path to a Doxygen executable and a Doxygen configuration file and doxyqbs is able to generate the documentation for you.
 
+**doxyqbs do not generate the configuration file.** You have to make it by yourself, using tools like Doxywizard or through `doxygen -g`.
+
 doxyqbs consists in two entities:
 * A QBS module whose name is "_doxyqbs_". It provides support for Doxygen.
 * A QBS product whose type is `Doxydoc`. It is a basic QBS product which depends on the _doxyqbs_ module.
@@ -32,7 +34,7 @@ doxyqbs consists in two entities:
 
 * Get the code of this repo by using GitHub's "_Clone or download_" button.
 * Put the folder in your QBS project or in your `preferences.qbsSearchPaths`.
-* You can also merge the doxyqbs root folder with other folder containing stuff related to QBS if you want to. Doxyqbs imports will join all your other QBS imports and it will be the same for modules. Assume that you put all your QBS stuff in `<project root>/path/to/your/qbs/stuff/`. You can merge the doxyqbs folder with `<project root>/path/to/your/qbs/stuff/`. Doxyqbs imports will be located at `<project root>/path/to/your/qbs/stuff/imports/doxyqbs/` and doxyqbs modules will be located at `<project root>/path/to/your/qbs/stuff/modules/doxyqbs/`.
+* You can also merge the doxyqbs root folder with other folder containing stuff related to QBS if you want to. Doxyqbs imports will join all your other QBS imports and it will be the same for modules. Assume that you put all your QBS stuff in `<project_root>/path/to/your/qbs/stuff/`. You can merge the doxyqbs folder with `<project_root>/path/to/your/qbs/stuff/`. Doxyqbs imports will be located at `<project_root>/path/to/your/qbs/stuff/imports/doxyqbs/` and doxyqbs modules will be located at `<project_root>/path/to/your/qbs/stuff/modules/doxyqbs/`.
 
 3. Using doxyqbs in your project:
 ------
@@ -40,7 +42,7 @@ doxyqbs consists in two entities:
 Add the doxyqbs location to your `qbsSearchPaths` (if it is not in your `preferences.qbsSearchPaths` of course):
 ```qml
 /// @file yourproject.qbs
-// Assuming that doxyqbs is in <project root>/path/to/doxyqbs/folder/
+// Assuming that doxyqbs is in <project_root>/path/to/doxyqbs/folder/
 import qbs
 
 Project {
@@ -88,9 +90,9 @@ Project {
 ```
 
 That's all! To generate your documentation, execute `qbs build`:
-```cli
-<project root> $> qbs build -f yourproject.qbs -p gendoc profile:your_qbs_profile
-# same as doxygen.exe <project root>/doc/Doxyfile.txt
+```
+<project_root> $> qbs build -f yourproject.qbs -p gendoc profile:your_qbs_profile
+# same as doxygen.exe <project_root>/doc/Doxyfile.txt
 ```
 
 Doxyqbs provides a QBS product for convenience called `Doxydoc`. It is just a QBS product which depends on the _doxyqbs_ QBS module. `Doxydoc` has two properties :
@@ -128,10 +130,10 @@ doxyqbs.Doxydoc {
 }
 ```
 
-```cli
+```
 # qbs build
-<project root> $> qbs build -f yourproject.qbs -p gendoc profile:your_qbs_profile
-# same as doxygen.exe <project root>/doc/Doxyfile.txt
+<project_root> $> qbs build -f yourproject.qbs -p gendoc profile:your_qbs_profile
+# same as doxygen.exe <project_root>/doc/Doxyfile.txt
 ```
 
 4. doxyqbs documentation:
@@ -140,7 +142,7 @@ doxyqbs.Doxydoc {
 Here is the doxyqbs content:
 
 ```
-/---+
+/<project_root>/
     |
     +---/imports/
     |       |
