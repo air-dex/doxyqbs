@@ -52,9 +52,7 @@ Project {
 }
 ```
 
-To generate documentation, you need to create a QBS product depending on the doxyqbs module. It is called "_doxyqbs_". The module needs two parameters:
-* `doxyqbs.doxygenExecutable`: your the doxygen executable. Its default value is `doxygen`.
-* `doxyqbs.doxygenConfigFile`: a path to your Doxygen configuration file. Its default value is `Doxyfile`. The path can be absolute or relative.
+To generate documentation, you need to create a QBS product depending on the doxyqbs module. It is called "_doxyqbs_". The module needs one parameter. It is called `doxyqbs.doxygenExecutable`. It is your doxygen executable. Its default value is `doxygen`.
 
 You also have to tag your Doxygen config file with the `doxyfile` tag.
 
@@ -97,7 +95,7 @@ That's all! To generate your documentation, execute `qbs build`:
 
 Doxyqbs provides a QBS product for convenience called `Doxydoc`. It is just a QBS product which depends on the _doxyqbs_ QBS module. `Doxydoc` has two properties :
 * `doxygenExecutable`: value for `doxyqbs.doxygenExecutable`
-* `doxygenConfigFile`: value for `doxyqbs.doxygenConfigFile`.
+* `doxygenConfigFile`: a path to your Doxygen configuration file. Its default value is `Doxyfile`. The path can be absolute or relative.
 
 Same example as before, but using a `Doxydoc` product:
 ```qml
